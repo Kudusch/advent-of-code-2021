@@ -1,0 +1,2 @@
+igraph==0.9.8
+texttable==1.6.4
