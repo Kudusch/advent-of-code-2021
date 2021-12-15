@@ -19,11 +19,8 @@ def get_adj(v):
     return(adj)
 
 # Set up data
-<<<<<<< HEAD
-with open("input_sample.txt", "r") as f:
-=======
+#with open("input_sample.txt", "r") as f:
 with open("input.txt", "r") as f:
->>>>>>> 51cd119593a34f04282b3ea7c95c77b14507ba0a
     puzzle_input = [[int(i) for i in list(l.strip())] for l in f.readlines()]
 
 risk_map = []
@@ -63,21 +60,13 @@ for p in paths:
     risk_level = sum([vertices[g.vs[i]["name"]] for i in p[1:]])
     path_nodes = [g.vs[i]["name"] for i in p]
 
-<<<<<<< HEAD
-=======
-    print(f"Shortest path has a length of {len(p)} and a total risk level of {risk_level}\n")
-
->>>>>>> 51cd119593a34f04282b3ea7c95c77b14507ba0a
     for y in range(dims["y"]):
         for x in range(dims["x"]):
             if f"{y}-{x}" in path_nodes:
-                print(vertices[f"{y}-{x}"], end = "")
+                print(f"\033[1m\033[96m{vertices[f'{y}-{x}']}\033[0m", end = "")
             else:
-                print(".", end = "")
+                print(vertices[f'{y}-{x}'], end = "")
         print("")
     print("")
-<<<<<<< HEAD
 
     print(f"Shortest path has a length of {len(p)} and a total risk level of {risk_level}\n")
-=======
->>>>>>> 51cd119593a34f04282b3ea7c95c77b14507ba0a
