@@ -19,7 +19,7 @@ def get_adj(v):
     return(adj)
 
 # Set up data
-with open("input.txt", "r") as f:
+with open("input_sample.txt", "r") as f:
     puzzle_input = [[int(i) for i in list(l.strip())] for l in f.readlines()]
 
 risk_map = []
@@ -59,8 +59,6 @@ for p in paths:
     risk_level = sum([vertices[g.vs[i]["name"]] for i in p[1:]])
     path_nodes = [g.vs[i]["name"] for i in p]
 
-    print(f"Shortest path has a length of {len(p)} and a total risk level of {risk_level}\n")
-
     for y in range(dims["y"]):
         for x in range(dims["x"]):
             if f"{y}-{x}" in path_nodes:
@@ -69,3 +67,5 @@ for p in paths:
                 print(".", end = "")
         print("")
     print("")
+
+    print(f"Shortest path has a length of {len(p)} and a total risk level of {risk_level}\n")
