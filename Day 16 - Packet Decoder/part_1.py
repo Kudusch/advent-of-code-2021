@@ -1,25 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from math import prod
+from itertools import chain
+
 # read puzzle input
 with open("input.txt") as f:
     puzzle_input = f.read()    
 
-puzzle_input = "620080001611562C8802118E34"
 puzzle_input = [f"{int(i, 16):04b}" for i in list(puzzle_input)]
 bit_code = "".join(puzzle_input)
-#print(bit_code)
-
-type_ids = {
-    0:"sum",
-    1:"prod",
-    2:"min",
-    3:"max",
-    4:"lit",
-    5:"gt",
-    6:"lt",
-    7:"eq"
-}
 
 def parse_packet(packet):
     parsed = {}
@@ -63,9 +53,3 @@ while flag:
         flag = False
 
 print(version_sum)
-
-for p in parsed_packets:
-    if p["id"] == "lit":
-        print(f'{p["id"]}\t{p["payload"]}\t{p["len_of_package"]}')
-    else:
-        print(f'{p["id"]}\t{p["length_type"]}:{p["sub_len"]}\t{p["len_of_package"]}')
